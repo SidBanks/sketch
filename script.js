@@ -11,10 +11,12 @@ function gridConversion(input) {
 
 // function using for loop and gridBox variable to create divs
 function gridLayout(gridSize) {
-     
+     for (let i = 0; i < gridSize; i++) {
+          let g[i] = document.createElement('div');
+     }
 }
 
-// function for using button ts resize grid.
+// function for using button to resize grid.
 input = prompt("Please enter a number between 0 -100 to resize the sketch pad.");
 if (isNaN(input)) {
      alert('Please Enter a number');
