@@ -1,6 +1,25 @@
+.body {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    padding: 10px;
+}
+
 .container {
-    width: 960px;
-    height: 960px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 680px;
+    height: 680px;
     border-style: solid;
     border-color: black;
+}
+
+div g[i] {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: black;
+    border-style: solid;
+    border-color: white;
+    border-width: 1px;
+
 }
