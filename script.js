@@ -1,8 +1,15 @@
 //Declaration of variable for the length of the sides and its default value
-let sideLength = 16;
+let sideLength = 200;
 
 //Creation of grid DOM item.
 const grid = document.querySelector('.grid');
+grid.style.display = 'flex';
+grid.style.flexWrap = 'wrap';
+grid.style.borderStyle = 'solid';
+grid.style.borderColor = 'black';
+grid.style.backgroundColor = 'transparent';
+grid.style.height = '640px';
+grid.style.width = '640px';
 
 //Declaration of lengthSquare variable
 let lengthSquare = sideLength * sideLength;
@@ -21,4 +28,14 @@ function createSquares() {
     }
 }
 
+//Creation of grid and grid squares
 createSquares(lengthSquare);
+
+//Event listener loop for grid squares
+let pixels = document.querySelectorAll('.gridSquare');
+
+pixels.forEach(pixel => {
+    pixel.addEventListener('mouseover', function() {
+        pixel.style.backgroundColor = 'black'
+    })
+})
