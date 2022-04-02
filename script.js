@@ -1,5 +1,7 @@
 //Declaration of variable for the length of the sides and its default value
-let sideLength = 200;
+let slider = document.getElementById('pixelSize');
+let sideLength = slider.value;
+console.log(sideLength);
 
 //Creation of grid DOM item.
 const grid = document.querySelector('.grid');
@@ -11,7 +13,8 @@ grid.style.backgroundColor = 'transparent';
 grid.style.height = '640px';
 grid.style.width = '640px';
 
-//Declaration of lengthSquare variable
+//Declaration of lengthSquare variable calculation for the total number
+//of grid squares.
 let lengthSquare = sideLength * sideLength;
 
 //Declaration of variable for grid square size
