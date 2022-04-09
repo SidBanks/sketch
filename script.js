@@ -48,6 +48,7 @@ function createPixels(pixelTotal) {
     }
     let pixels = document.querySelectorAll('.pixelSquare');
 
+//Event listener loop for grid squares
     pixels.forEach((pixel) => {
             pixel.addEventListener('mouseover', function () {
                 pixel.style.backgroundColor = 'black';
@@ -63,4 +64,4 @@ pixelSize.addEventListener('click', function() { pixelMaker(sideLength); });
 pixelSize.addEventListener('click', function() { pixelSizer(sideLength); });
 pixelSize.addEventListener('click', function() { createPixels(pixelTotal); });
 
-//Event listener loop for grid squares
+
