@@ -1,7 +1,31 @@
-//Declaration of variable for the length of the sides and its default value
-let slider = document.getElementById('pixelSize');
-let sideLength = slider.value;
+let pixelSize = document.querySelector('#pixelSize');
+
+//Declaration of side length variable, and length square variable
+let sideLength;
+let pixelTotal;
+let setSide;
+
+//function for setting variable number of pixels on a side
+function setSideLength(pixelSize) {
+sideLength = pixelSize.value;
+console.log(pixelSize.value);
 console.log(sideLength);
+return sideLength;
+}
+
+//function for changing the total numbur of pixels
+function pixelMaker(sideLength) {
+    pixelTotal = sideLength * sideLength;
+    console.log(pixelTotal);
+    return pixelTotal;
+}
+
+//function to set pixel size.
+function pixelSizer(sideLength) {
+    setSide = `${640 / sideLength}px`;
+    console.log(setSide);
+    return setSide;
+    }
 
 //Creation of grid DOM item.
 const grid = document.querySelector('.grid');
@@ -13,32 +37,30 @@ grid.style.backgroundColor = 'transparent';
 grid.style.height = '640px';
 grid.style.width = '640px';
 
-//Declaration of lengthSquare variable calculation for the total number
-//of grid squares.
-let lengthSquare = sideLength * sideLength;
-
-//Declaration of variable for grid square size
-let setSide = `${640 / sideLength}px`;
-
 //Function for creating grid squares using sideLength as a parameter
-function createSquares() {
-    for (let i = 0; i < lengthSquare; i++) {
-        let gridSquare = document.createElement('div');
-        gridSquare.style.width = setSide;
-        gridSquare.style.height = setSide;
-        gridSquare.classList.add('gridSquare');
-        grid.appendChild(gridSquare);
+function createPixels(pixelTotal) {
+    for (let i = 0; i < pixelTotal; i++) {
+        let pixelSquare = document.createElement('div');
+        pixelSquare.style.width = setSide;
+        pixelSquare.style.height = setSide;
+        pixelSquare.classList.add('pixelSquare');
+        grid.appendChild(pixelSquare);
     }
+    let pixels = document.querySelectorAll('.pixelSquare');
+
+    pixels.forEach((pixel) => {
+            pixel.addEventListener('mouseover', function () {
+                pixel.style.backgroundColor = 'black';
+            });
+        })
+    
+
 }
 
-//Creation of grid and grid squares
-createSquares(lengthSquare);
+//event listeners for pixel size and drawing
+pixelSize.addEventListener('click', function() { setSideLength(pixelSize); });
+pixelSize.addEventListener('click', function() { pixelMaker(sideLength); });
+pixelSize.addEventListener('click', function() { pixelSizer(sideLength); });
+pixelSize.addEventListener('click', function() { createPixels(pixelTotal); });
 
 //Event listener loop for grid squares
-let pixels = document.querySelectorAll('.gridSquare');
-
-pixels.forEach(pixel => {
-    pixel.addEventListener('mouseover', function() {
-        pixel.style.backgroundColor = 'black'
-    })
-})
