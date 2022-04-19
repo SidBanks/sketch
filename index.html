@@ -13,16 +13,16 @@
     <div class="body">
     <div class="buttonBox">
         <button class="backgroundColor">Change Starting Color</button>
-        <button class="penColor">Pen Color</button>
-        <form>
-            <label for="pixelSize">Pick a pixel size (between 16 and 100)</label>
-            <input type="number" id="pixelSize" name="pixelSize" value="16" class="pixelSize" min="16" max="100">
-            <button class="pixelSize">Draw Grid</button>
-        </form>
+        <input type="color" class="penColor" id="penColor" value="#000000S">Pen Color</button>
     </div>
     <div class="gridContainer">
     <div class="grid">
     </div>
+    <form>
+        <label for="pixelSize">Pick a pixel size (between 16 and 100)</label>
+        <input type=range id="pixelSize" name="pixelSize" value="16" class="pixelSize" min="16" max="100">
+        <button class="pixelMaker">Draw Grid</button>
+    </form>
     </div>
     </div>
 </body>
