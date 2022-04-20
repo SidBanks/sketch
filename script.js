@@ -45,7 +45,7 @@ function createPixels(pixelTotal) {
         while (grid.hasChildNodes()) {
             grid.removeChild(grid.firstChild);
         }
-    } else {
+    }
     for (let i = 0; i < pixelTotal; i++) {
         let pixelSquare = document.createElement('div');
         pixelSquare.display = 'flex';
@@ -56,7 +56,6 @@ function createPixels(pixelTotal) {
         pixelSquare.classList.add('pixelSquare');
         grid.appendChild(pixelSquare);
     }
-}
     let pixels = document.querySelectorAll('.pixelSquare');
 
 //Event listener loop for grid squares
