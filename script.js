@@ -1,12 +1,14 @@
 let pixelSize = document.querySelector('#pixelSize');
+let penColor = document.querySelector('#penColor');
 
-//Declaration of side length variable, length square, pixel size,
-// and pen color variable.
+//Declaration of side length variable, length square, pixel size, grid side size
+// pixel color, and pen color variable.
 let sideLength;
 let pixelTotal;
 let pixelSide;
 let grid;
 let gridSide;
+let pixelColor;
 
 //function for setting variable number of pixels on a side
 function setSideLength(pixelSize) {
@@ -35,6 +37,12 @@ function gridSize(sideLength, pixelSide) {
    gridSide = sideLength * pixelSide;
    return gridSide;
 }    
+
+//function to change pen color
+function colorChanger(penColor) {
+    pixelColor = penColor.value;
+    return pixelColor;
+}
 
 //function for the creation of grid DOM item.
 function drawGrid (gridSide) {
@@ -74,7 +82,7 @@ function createPixels(pixelTotal) {
 //Event listener loop for grid squares
     pixels.forEach((pixel) => {
             pixel.addEventListener('mouseover', function () {
-                pixel.style.backgroundColor = 'black';
+                pixel.style.backgroundColor = pixelColor;
             });
         })
     
@@ -88,4 +96,5 @@ pixelSize.addEventListener('input', function() { pixelMaker(sideLength); });
 pixelSize.addEventListener('input', function() { pixelSizer(sideLength); });
 pixelSize.addEventListener('input', function() { createPixels(pixelTotal); });
 
-
+//Event listener for changing pen color
+penColor.addEventListener('input', function() { colorChanger(penColor); });
