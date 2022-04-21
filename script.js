@@ -1,5 +1,6 @@
 let pixelSize = document.querySelector('#pixelSize');
 let penColor = document.querySelector('#penColor');
+let backgroundColor = document.querySelector('#backgroundColor');
 
 //Declaration of side length variable, length square, pixel size, grid side size
 // pixel color, and pen color variable.
@@ -9,6 +10,7 @@ let pixelSide;
 let grid;
 let gridSide;
 let pixelColor;
+let gridColor;
 
 //function for setting variable number of pixels on a side
 function setSideLength(pixelSize) {
@@ -44,6 +46,12 @@ function colorChanger(penColor) {
     return pixelColor;
 }
 
+//function to change background color
+function backgroundChanger(backgroundColor) {
+    gridColor = backgroundColor.value;
+    return gridColor;
+}
+
 //function for the creation of grid DOM item.
 function drawGrid (gridSide) {
 grid = document.querySelector('.grid');
@@ -51,7 +59,7 @@ grid.style.display = 'flex';
 grid.style.flexWrap = 'wrap';
 grid.style.borderStyle = 'solid';
 grid.style.borderColor = 'black';
-grid.style.backgroundColor = 'transparent';
+grid.style.backgroundColor = gridColor;
 grid.style.width = gridSide;
 grid.style.height = gridSide;
 grid.style.maxWidth = '640.9999px'; 
@@ -98,3 +106,6 @@ pixelSize.addEventListener('input', function() { createPixels(pixelTotal); });
 
 //Event listener for changing pen color
 penColor.addEventListener('input', function() { colorChanger(penColor); });
+
+//Event Listener for changing background color
+backgroundColor.addEventListener('input', function() { backgroundChanger(backgroundColor); });
