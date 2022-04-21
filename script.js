@@ -97,6 +97,15 @@ function createPixels(pixelTotal) {
 
 }
 
+//intial function calls on page load.
+backgroundChanger(backgroundColor);
+colorChanger(penColor);
+drawGrid(gridSide);
+setSideLength(pixelSize);
+pixelMaker(sideLength);
+pixelSizer(sideLength);
+createPixels(pixelTotal);
+
 //event listeners for pixel size and drawing and grid drawing
 pixelSize.addEventListener('input', function() { drawGrid(gridSide); });
 pixelSize.addEventListener('input', function() { setSideLength(pixelSize); });
@@ -109,3 +118,9 @@ penColor.addEventListener('input', function() { colorChanger(penColor); });
 
 //Event Listener for changing background color
 backgroundColor.addEventListener('input', function() { backgroundChanger(backgroundColor); });
+backgroundColor.addEventListener('input', function() { drawGrid(gridSide); });
+backgroundColor.addEventListener('input', function() { setSideLength(pixelSize); });
+backgroundColor.addEventListener('input', function() { pixelMaker(sideLength); });
+backgroundColor.addEventListener('input', function() { pixelSizer(sideLength); });
+backgroundColor.addEventListener('input', function() { createPixels(pixelTotal); });
+
