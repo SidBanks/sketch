@@ -46,9 +46,10 @@ grid.style.borderColor = 'black';
 grid.style.backgroundColor = 'transparent';
 grid.style.width = gridSide;
 grid.style.height = gridSide;
-grid.style.maxWidth = '640px'; 
+grid.style.maxWidth = '645px'; 
 grid.style.maxHeight = '640px';
-grid.style.flexGrow= 1;
+grid.style.flexGrow = '1';
+grid.style.flexShrink = '1';
 }
 
 //Function for creating grid squares using sideLength as a parameter
@@ -63,8 +64,8 @@ function createPixels(pixelTotal) {
         pixelSquare.display = 'flex';
         pixelSquare.style.width = pixelSide;
         pixelSquare.style.height = pixelSide;
-        pixelSquare.style.flexShrink = 1;
-        pixelSquare.style.minWidth = '6.4px';
+        pixelSquare.style.flexShrink = '1';
+        pixelSquare.style.minWidth = '0px';
         pixelSquare.classList.add('pixelSquare');
         grid.appendChild(pixelSquare);
     }
