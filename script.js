@@ -46,8 +46,8 @@ grid.style.borderColor = 'black';
 grid.style.backgroundColor = 'transparent';
 grid.style.width = gridSide;
 grid.style.height = gridSide;
-grid.style.maxWidth = '645px'; 
-grid.style.maxHeight = '640px';
+grid.style.maxWidth = '640.9999px'; 
+grid.style.maxHeight = '644.9999px';
 grid.style.flexGrow = '1';
 grid.style.flexShrink = '1';
 }
