@@ -1,7 +1,7 @@
 let pixelSize = document.querySelector('#pixelSize');
 let penColor = document.querySelector('#penColor');
 let backgroundColor = document.querySelector('#backgroundColor');
-
+let rainbowToggle = document.querySelector('#rainbowToggle');
 //Declaration of side length variable, length square, pixel size, grid side size
 // pixel color, and pen color variable.
 let sideLength;
@@ -11,6 +11,7 @@ let grid;
 let gridSide;
 let pixelColor;
 let gridColor;
+let pixels;
 
 //function for setting variable number of pixels on a side
 function setSideLength(pixelSize) {
@@ -44,6 +45,16 @@ function gridSize(sideLength, pixelSide) {
 function colorChanger(penColor) {
     pixelColor = penColor.value;
     return pixelColor;
+}
+
+function rainbowMaker() {
+    pixels.forEach((pixel) => {
+        pixel.addEventListener('mouseover', function () {
+            pixel.style.backgroundColor = `#${Math.floor(Math.random()*16777215).toString(16)}`;
+            console.log(pixel.style.backgroundColor);
+return pixelColor;
+        });
+    });
 }
 
 //function to change background color
@@ -85,16 +96,19 @@ function createPixels(pixelTotal) {
         pixelSquare.classList.add('pixelSquare');
         grid.appendChild(pixelSquare);
     }
-    let pixels = document.querySelectorAll('.pixelSquare');
+    pixels = document.querySelectorAll('.pixelSquare');
 
 //Event listener loop for grid squares
+    if (rainbowToggle.checked == !true) {
     pixels.forEach((pixel) => {
             pixel.addEventListener('mouseover', function () {
                 pixel.style.backgroundColor = pixelColor;
+                console.log(pixel.style.backgroundColor);
             });
-        })
-    
-
+        });
+    } else if (rainbowToggle.checked == true) {
+        rainbowMaker();
+    }
 }
 
 //intial function calls on page load.
@@ -115,6 +129,7 @@ pixelSize.addEventListener('input', function() { createPixels(pixelTotal); });
 
 //Event listener for changing pen color
 penColor.addEventListener('input', function() { colorChanger(penColor); });
+rainbowToggle.addEventListener('click', function() { createPixels(pixelTotal); });
 
 //Event Listener for changing background color
 backgroundColor.addEventListener('input', function() { backgroundChanger(backgroundColor); });
@@ -123,4 +138,3 @@ backgroundColor.addEventListener('input', function() { setSideLength(pixelSize);
 backgroundColor.addEventListener('input', function() { pixelMaker(sideLength); });
 backgroundColor.addEventListener('input', function() { pixelSizer(sideLength); });
 backgroundColor.addEventListener('input', function() { createPixels(pixelTotal); });
-
